@@ -14,8 +14,8 @@ class AioConfigTestCase(unittest.TestCase):
         app_dir = os.path.join(
             TEST_DIR, "resources")
         config = yield from parse_config(app_dir=app_dir)
-        self.assertEquals(config.sections(), ["section1"])        
-        self.assertEquals(config["section1"]["result"], "1")    
+        self.assertEquals(config.sections(), ["section1"])
+        self.assertEquals(config["section1"]["result"], "1")
 
     @aiotest
     def test_parse_custom_config(self):

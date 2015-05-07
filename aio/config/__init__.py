@@ -4,7 +4,7 @@ import asyncio
 from configparser import ConfigParser, ExtendedInterpolation
 
 
-def find_config(app_dir=None):    
+def find_config(app_dir=None):
     if not app_dir:
         app_dir = os.getcwd()
     config = os.path.join(app_dir, 'aio.conf')
@@ -24,4 +24,3 @@ def parse_config(config=None, app_dir=None):
     parser = ConfigParser(interpolation=ExtendedInterpolation())
     parser.read_file(open(config or find_config(app_dir)))
     return parser
-
