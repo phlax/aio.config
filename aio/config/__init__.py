@@ -20,7 +20,12 @@ def find_config(app_dir=None):
 
 
 @asyncio.coroutine
-def parse_config(config=None, app_dir=None):
+def parse_config(config=None, app_dir=None, config_dict=None, config_string=None):
     parser = ConfigParser(interpolation=ExtendedInterpolation())
-    parser.read_file(open(config or find_config(app_dir)))
+    if config_dict:
+        parser.read_dict(config_dict)
+    elif config_string:
+        parser.read_string(config_string)
+    else:
+        parser.read_file(open(config or find_config(app_dir)))
     return parser
