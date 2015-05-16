@@ -9,4 +9,3 @@ install:
 
 script:
  - python setup.py test
- - python -m doctest aio/config/README.rst
