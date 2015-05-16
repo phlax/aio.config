@@ -32,6 +32,7 @@ setup(
     include_package_data=True,
     zip_safe=False,
     tests_require=tests_require,
+    test_suite="aio.config.tests",
     install_requires=install_requires,
     entry_points="""
     # -*- Entry points: -*-

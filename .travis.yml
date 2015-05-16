@@ -1,0 +1,12 @@
+language: python
+python:
+ - "3.4"
+
+install:
+ - pip install -r travis/requirements.txt
+ - pip install .
+
+
+script:
+ - python setup.py test
+ - python -m doctest aio/config/README.rst
