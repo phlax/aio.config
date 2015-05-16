@@ -27,8 +27,8 @@ class AioConfigParseTestCase(unittest.TestCase):
         app_dir = os.path.join(
             TEST_DIR, "resources")
         config = yield from parse_config(app_dir=app_dir)
-        self.assertEquals(config.sections(), ["section1"])
-        self.assertEquals(config["section1"]["result"], "1")
+        self.assertEqual(config.sections(), ["section1"])
+        self.assertEqual(config["section1"]["result"], "1")
 
     @aiotest
     def test_parse_custom_config(self):
@@ -38,16 +38,16 @@ class AioConfigParseTestCase(unittest.TestCase):
         configfile = os.path.join(
             TEST_DIR, "resources", "test-1.conf")
         config = yield from parse_config(configfile)
-        self.assertEquals(config.sections(), ["foo", "bar"])
-        self.assertEquals(config["foo"]["bar"], "1")
-        self.assertEquals(config["bar"]["foo"], "baz")
+        self.assertEqual(config.sections(), ["foo", "bar"])
+        self.assertEqual(config["foo"]["bar"], "1")
+        self.assertEqual(config["bar"]["foo"], "baz")
 
     @aiotest
     def test_config_string(self):
         config = yield from parse_config(config_string=CONFIG_STRING)
-        self.assertEquals(config.sections(), ["section1", "section2"])
-        self.assertEquals(config["section1"]["foo"], "2")
-        self.assertEquals(config["section2"]["bar"], "3")
+        self.assertEqual(config.sections(), ["section1", "section2"])
+        self.assertEqual(config["section1"]["foo"], "2")
+        self.assertEqual(config["section2"]["bar"], "3")
 
 
 class AioConfigFinderTestCase(unittest.TestCase):
@@ -58,7 +58,7 @@ class AioConfigFinderTestCase(unittest.TestCase):
         """
         app_dir = os.path.join(
             TEST_DIR, "resources")
-        self.assertEquals(
+        self.assertEqual(
             find_config(app_dir),
             os.path.join(
                 app_dir, 'aio.conf'))
@@ -69,7 +69,7 @@ class AioConfigFinderTestCase(unittest.TestCase):
         """
         app_dir = os.path.join(
             TEST_DIR, "resources", "sub")
-        self.assertEquals(
+        self.assertEqual(
             find_config(app_dir),
             os.path.join(
                 app_dir, "etc", 'aio.conf'))
