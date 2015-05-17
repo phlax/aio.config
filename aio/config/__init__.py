@@ -1,7 +1,9 @@
-__version__ = "0.0.1"
 import os
 import asyncio
+
 from configparser import ConfigParser, ExtendedInterpolation
+
+from aio.core.exceptions import MissingConfiguration
 
 
 def find_config(app_dir=None):
@@ -16,7 +18,7 @@ def find_config(app_dir=None):
     config = os.path.join(app_dir, '/etc', 'aio.conf')
     if os.path.exists(config):
         return config
-    raise Exception('no configuration file found')
+    raise MissingConfiguration('no configuration file found')
 
 
 @asyncio.coroutine
