@@ -1,3 +1,4 @@
+
 aio.config
 ==========
 
@@ -15,9 +16,11 @@ Build status
 
 Installation
 ------------
+
 Install with:
 
 .. code:: bash
+
 	  pip install aio.config
 
 
@@ -26,14 +29,14 @@ Configuration finder
 
 The configuration finder will search the following directory paths in search of configuration files
 
-   - aio.conf
+- aio.conf
 
-   - etc/aio.conf
+- etc/aio.conf
 
-   - /etc/aio.conf
+- /etc/aio.conf
+
 
 Configuration parser
 --------------------
 
 The configuration parser uses *configparser.ExtendedInterpolation*
-

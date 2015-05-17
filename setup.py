@@ -5,7 +5,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = "0.0.1"
+version = "0.0.2"
 
 install_requires = ['setuptools', 'aio.core']
 
@@ -22,7 +22,7 @@ long_description = read("README.rst")
 setup(
     name='aio.config',
     version=version,
-    description="Aio application runner",
+    description="Aio configuration utilities",
     long_description=long_description,
     classifiers=[
         "Development Status :: 4 - Beta",
