@@ -1,11 +1,9 @@
 import os
 import asyncio
-
+from collections import OrderedDict
 from configparser import ConfigParser, ExtendedInterpolation
 
-from aio.core.exceptions import MissingConfiguration
-
-from collections import OrderedDict
+# from aio.core.exceptions import MissingConfiguration
 
 
 def gather_config(modules, filename=None):

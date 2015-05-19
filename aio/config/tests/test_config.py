@@ -19,6 +19,7 @@ bar: 3
 foo: 4
 """
 
+
 class AioConfigParseTestCase(unittest.TestCase):
 
     @aiotest
@@ -37,8 +38,8 @@ class AioConfigParseTestCase(unittest.TestCase):
             config['more_settings']['example_option2'])
         self.assertEqual(
             "default",
-            config['even_more_settings']['example_option'])        
-        
+            config['even_more_settings']['example_option'])
+
     @aiotest
     def test_parse_config_app_dir(self):
         """
@@ -96,14 +97,13 @@ class AioConfigFinderTestCase(unittest.TestCase):
                 app_dir, "etc", 'aio.conf'))
 
 
-
 class AioConfigGatherTestCase(unittest.TestCase):
 
     def test_gather_config(self):
 
         from aio.config.tests import (
             example_module, example_module2)
-        
+
         config_files = aio.config.gather_config(
             [aio.testing, aio.config,
              example_module, example_module2])
@@ -115,7 +115,7 @@ class AioConfigGatherTestCase(unittest.TestCase):
         self.assertEqual(config_files, expected)
 
     def test_gather_config_custom_filename(self):
-        
+
         config_files = aio.config.gather_config(
             [aio.testing, aio.config,
              example_module, example_module2])
