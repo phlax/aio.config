@@ -35,7 +35,7 @@ def find_config(app_dir=None, filename=None):
 def parse_config(config=None, config_files=None, app_dir=None,
                  config_dict=None, config_string=None,
                  modules=None, parser=None, interpolation=None,
-                 filename=None):
+                 filename=None, search_for_config=False):
     parser = parser or ConfigParser(
         interpolation=interpolation or ExtendedInterpolation())
     if config_dict:
@@ -48,7 +48,7 @@ def parse_config(config=None, config_files=None, app_dir=None,
     elif modules:
         for config_file in gather_config(modules, filename=filename):
             parser.read_file(open(config_file))
-    else:
+    elif search_for_config:
         config = config or find_config(app_dir, filename=filename)
         if config:
             parser.read_file(open(config))
