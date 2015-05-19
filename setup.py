@@ -38,7 +38,7 @@ setup(
     packages=find_packages(),
     namespace_packages=['aio'],
     include_package_data=True,
-    package_data={'': ['aio/config/tests/resources/*.conf', 'tests/resources/*.conf', '*.rst']},    
+    package_data={'': ['aio/config/tests/resources/*.conf', '*.rst']},    
     zip_safe=False,
     tests_require=tests_require,
     test_suite="aio.config.tests",
