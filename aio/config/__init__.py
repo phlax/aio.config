@@ -8,7 +8,6 @@ from aio.core.exceptions import MissingConfiguration
 from collections import OrderedDict
 
 
-
 def gather_config(modules, filename=None):
     config_files = []
     for module in modules:
@@ -58,7 +57,7 @@ def parse_config(config=None, config_files=None, app_dir=None,
 
 
 class ConfigSection(OrderedDict):
-    
+
     pass
 
 

@@ -5,7 +5,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = "0.0.10"
+version = "0.0.11"
 
 install_requires = ['distribute', 'aio.core']
 
@@ -13,6 +13,7 @@ if sys.version_info < (3, 4):
     install_requires += ['asyncio']
 
 tests_require = install_requires + ['aio.testing']
+
 
 def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
