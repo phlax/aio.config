@@ -20,6 +20,7 @@ def read(*rnames):
 
 long_description = read("README.rst")
 
+
 setup(
     name='aio.config',
     version=version,
