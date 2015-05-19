@@ -5,7 +5,7 @@ import os
 import sys
 from setuptools import setup, find_packages
 
-version = "0.0.16"
+version = "0.0.17"
 
 install_requires = ['distribute', 'aio.core']
 
@@ -19,7 +19,6 @@ def read(*rnames):
     return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
 
 long_description = read("README.rst")
-
 
 setup(
     name='aio.config',
