@@ -49,8 +49,9 @@ def parse_config(config=None, config_files=None, app_dir=None,
         for config_file in gather_config(modules, filename=filename):
             parser.read_file(open(config_file))
     else:
-        parser.read_file(
-            open(config or find_config(app_dir, filename=filename)))
+        config = config or find_config(app_dir, filename=filename)
+        if config:
+            parser.read_file(open(config))
     return parser
 
 
