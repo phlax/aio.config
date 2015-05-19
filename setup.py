@@ -7,7 +7,7 @@ from setuptools import setup, find_packages
 
 version = "0.0.6"
 
-install_requires = ['setuptools', 'aio.core']
+install_requires = ['distribute', 'aio.core']
 
 if sys.version_info < (3, 4):
     install_requires += ['asyncio']
