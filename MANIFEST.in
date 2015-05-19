@@ -1,2 +1,2 @@
 include README.rst
-include aio/config/README.rst
+recursive-include tests/resources *conf
