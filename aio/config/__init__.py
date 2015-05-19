@@ -30,7 +30,7 @@ def find_config(app_dir=None, filename=None):
     config = os.path.join(app_dir, '/etc', filename or 'aio.conf')
     if os.path.exists(config):
         return config
-    raise MissingConfiguration('no configuration file found')
+    # raise MissingConfiguration('no configuration file found')
 
 
 @asyncio.coroutine
