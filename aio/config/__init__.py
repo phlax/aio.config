@@ -75,3 +75,12 @@ def replicate_config(config, test_section=None):
         for option_name, option in section.items():
             new_config[section_name][option_name] = option
     return new_config
+
+
+@asyncio.coroutine
+def dump_config(config):
+    for section_name, section in config.items():
+        print("[%s]" % section_name)
+        for option_name, option in section.items():
+            print("%s = %s" % (option_name, str(option.replace("\n", "\n\t"))))
+        print()
