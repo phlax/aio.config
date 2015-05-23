@@ -1,7 +1,6 @@
 import os
 import unittest
 
-from aio.testing import aiotest
 import aio.config
 import aio.testing
 from aio.config.tests import (
@@ -22,7 +21,7 @@ foo: 4
 
 class AioConfigParseTestCase(unittest.TestCase):
 
-    @aiotest
+    @aio.testing.run_until_complete
     def test_parse_config_modules(self):
         """
         this test should parse config from multiple paths
@@ -40,7 +39,7 @@ class AioConfigParseTestCase(unittest.TestCase):
             "default",
             config['even_more_settings']['example_option'])
 
-    @aiotest
+    @aio.testing.run_until_complete
     def test_parse_config_app_dir(self):
         """
         this test should find and parse "aio.conf" in the app_dir
@@ -52,7 +51,7 @@ class AioConfigParseTestCase(unittest.TestCase):
         self.assertEqual(config.sections(), ["section1"])
         self.assertEqual(config["section1"]["result"], "1")
 
-    @aiotest
+    @aio.testing.run_until_complete
     def test_parse_custom_config(self):
         """
         this test should parse a custom config file
@@ -64,7 +63,7 @@ class AioConfigParseTestCase(unittest.TestCase):
         self.assertEqual(config["foo"]["bar"], "1")
         self.assertEqual(config["bar"]["foo"], "baz")
 
-    @aiotest
+    @aio.testing.run_until_complete
     def test_config_string(self):
         config = yield from aio.config.parse_config(
             config_string=CONFIG_STRING)
