@@ -16,7 +16,7 @@ def gather_config(modules, filename=None):
     return config_files
 
 
-def find_config(app_dir=None, filename=None):
+def find_config(app_dir=None, filename=None, system_folder=None):
     if not app_dir:
         app_dir = os.getcwd()
     config = os.path.join(app_dir, filename or 'aio.conf')
@@ -25,10 +25,11 @@ def find_config(app_dir=None, filename=None):
     config = os.path.join(app_dir, 'etc', filename or 'aio.conf')
     if os.path.exists(config):
         return config
-    config = os.path.join(app_dir, '/etc', filename or 'aio.conf')
+    if not system_folder:
+        system_folder = os.path.join("/etc", "aio")
+    config = os.path.join(system_folder, filename or 'aio.conf')
     if os.path.exists(config):
         return config
-    # raise MissingConfiguration('no configuration file found')
 
 
 @asyncio.coroutine
