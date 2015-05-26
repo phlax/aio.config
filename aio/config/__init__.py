@@ -77,7 +77,6 @@ def replicate_config(config, test_section=None):
     return new_config
 
 
-@asyncio.coroutine
 def dump_config(config):
     for section_name, section in config.items():
         print("[%s]" % section_name)
