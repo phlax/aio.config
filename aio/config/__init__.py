@@ -32,7 +32,6 @@ def find_config(app_dir=None, filename=None, system_folder=None):
         return config
 
 
-@asyncio.coroutine
 def parse_config(config=None, config_files=None, app_dir=None,
                  config_dict=None, config_string=None,
                  modules=None, parser=None, interpolation=None,

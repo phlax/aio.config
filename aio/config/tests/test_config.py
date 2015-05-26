@@ -21,12 +21,11 @@ foo: 4
 
 class AioConfigParseTestCase(unittest.TestCase):
 
-    @aio.testing.run_until_complete
     def test_parse_config_modules(self):
         """
         this test should parse config from multiple paths
         """
-        config = yield from aio.config.parse_config(
+        config = aio.config.parse_config(
             modules=[
                 aio.testing, aio.config,
                 example_module, example_module2])
@@ -39,33 +38,30 @@ class AioConfigParseTestCase(unittest.TestCase):
             "default",
             config['even_more_settings']['example_option'])
 
-    @aio.testing.run_until_complete
     def test_parse_config_app_dir(self):
         """
         this test should find and parse "aio.conf" in the app_dir
         """
         app_dir = os.path.join(
             TEST_DIR, "resources")
-        config = yield from aio.config.parse_config(
+        config = aio.config.parse_config(
             app_dir=app_dir, search_for_config=True)
         self.assertEqual(config.sections(), ["section1"])
         self.assertEqual(config["section1"]["result"], "1")
 
-    @aio.testing.run_until_complete
     def test_parse_custom_config(self):
         """
         this test should parse a custom config file
         """
         configfile = os.path.join(
             TEST_DIR, "resources", "test-1.conf")
-        config = yield from aio.config.parse_config(configfile)
+        config = aio.config.parse_config(configfile)
         self.assertEqual(config.sections(), ["foo", "bar"])
         self.assertEqual(config["foo"]["bar"], "1")
         self.assertEqual(config["bar"]["foo"], "baz")
 
-    @aio.testing.run_until_complete
     def test_config_string(self):
-        config = yield from aio.config.parse_config(
+        config = aio.config.parse_config(
             config_string=CONFIG_STRING)
         self.assertEqual(config.sections(), ["section1", "section2"])
         self.assertEqual(config["section1"]["foo"], "2")
